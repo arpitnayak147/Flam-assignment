@@ -121,15 +121,15 @@ def report(theta, M, X, x_data, y_data):
     dy = y_data[:, None] - cy[None, :]
     dist = np.sqrt((dx ** 2 + dy ** 2).min(axis=1))
 
-    print("\n=== Fitted parameters ===")
+    print("\n========== Estimated Parameters ==========")
     print(f"theta = {theta:.10f} rad  ({np.rad2deg(theta):.6f} deg)")
     print(f"M     = {M:.10f}")
     print(f"X     = {X:.10f}")
-    print("\n=== Fit quality (nearest-point distance, in data units) ===")
+    print("\n========== Fit Statistics ==========")
     print(f"max residual  : {dist.max():.6f}")
     print(f"mean residual : {dist.mean():.6f}")
 
-    print("\n=== Desmos LaTeX (paste into the calculator) ===")
+    print("\n========== Desmos-Compatible Equation ==========")
     print(
         f"\\left(t*\\cos({theta:.10f})-e^{{{M:.10f}\\left|t\\right|}}"
         f"\\cdot\\sin(0.3t)\\sin({theta:.10f})+{X:.10f},"
